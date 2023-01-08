@@ -13,7 +13,7 @@ import seoConfig from '../../../seo/collection';
 // Filter Component
 function Filters() {
   return (
-    <div className="w-1/4 p-5 rounded-lg bg-dark-100 shadow max-h-[95vh] sticky top-24 hidden lg:block">Filters</div>
+    <div className="w-1/4 p-5 rounded-lg bg-dark-100 shadow max-h-[95vh] sticky top-28 hidden lg:block">Filters</div>
   );
 }
 
