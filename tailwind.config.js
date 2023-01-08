@@ -8,18 +8,19 @@ module.exports = {
     extend: {
       colors: {
         dark: {
-          900: '#212529',
-          800: '#343a40',
-          700: '#495057',
-          600: '#6c757d',
-          500: '#adb5bd',
-          400: '#ced4da',
-          300: '#dee2e6',
-          200: '#e9ecef',
-          100: '#f8f9fa',
+          900: '#242526', // Default Dark
+          800: '#474747',
+          700: '#595959',
+          600: '#6B6B6B', // Dark Gray on White Background / Subheader on Dark Background
+          500: '#909090', // Labels
+          400: '#B5B5B5', // Subheader + Details/Info
+          300: '#DADADA', // Borders (2) + Placeholders + Separations
+          200: '#ECECEC', // Background Hover + Border (1)
+          100: '#F4F4F4',
+          50: '#FAFAFA',
         },
         main: {
-          500: '#85BAA1',
+          500: '#457b9d',
         },
       },
     },
