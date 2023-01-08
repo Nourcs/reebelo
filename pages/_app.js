@@ -10,8 +10,8 @@ export default function App({ Component, pageProps }) {
     <>
       <DefaultSeo
         {...SEO}
-        dangerouslySetAllPagesToNoFollow={process.env.NEXT_PUBLIC_NODE_ENV !== 'production'}
-        dangerouslySetAllPagesToNoIndex={process.env.NEXT_PUBLIC_NODE_ENV !== 'production'}
+        // dangerouslySetAllPagesToNoFollow={process.env.NEXT_PUBLIC_NODE_ENV !== 'production'}
+        // dangerouslySetAllPagesToNoIndex={process.env.NEXT_PUBLIC_NODE_ENV !== 'production'}
       />
       <Component {...pageProps} />
     </>,
