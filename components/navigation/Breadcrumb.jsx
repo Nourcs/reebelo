@@ -12,11 +12,15 @@ function Breadcrumb({ collectionName, productName }) {
     <div className="font-semibold flex items-center">
       {pathname.map((item, index) => {
         const path = index === 0 ? '/' : [...pathname].splice(0, index + 1).join('/');
-        console.log('pathname', path);
         return (
           <React.Fragment key={`${item}_${index}`}>
             <Link href={path}>
-              <button type="button" className={`transition duration-150 ease-in-out capitalize ${index + 1 === pathname.length ? 'text-dark-900' : 'text-dark-500 hover:text-dark-900'}`}>
+              <button
+                id={item}
+                aria-label={item}
+                type="button"
+                className={`transition duration-150 ease-in-out capitalize ${index + 1 === pathname.length ? 'text-dark-900' : 'text-dark-500 hover:text-dark-900'}`}
+              >
                 {{
                   0: 'Home',
                   1: 'Collections',

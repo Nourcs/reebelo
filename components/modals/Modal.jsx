@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import { XCircle } from 'react-feather';
 
 function Modal({
-  title, showModal, closeModal, children, icon,
+  title, closeModal, children, icon,
 }) {
   const nu = null;
 
   useEffect(() => {
     const el = document.getElementsByTagName('body')[0];
-    console.log(el);
     el.classList.add('overflow-hidden');
 
     return () => {
@@ -29,7 +28,12 @@ function Modal({
               {title || 'Title'}
             </h2>
           </div>
-          <button type="button" onClick={closeModal}>
+          <button
+            id="close-modal"
+            aria-label="Close Modal"
+            type="button"
+            onClick={closeModal}
+          >
             <div>
               <XCircle className="h-6 w-6" />
             </div>

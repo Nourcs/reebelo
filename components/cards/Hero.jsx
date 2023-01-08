@@ -11,6 +11,8 @@ function Hero() {
           <div className="flex-1">
             <Link href="/collections">
               <button
+                id="shop-by-collection" 
+                aria-label="Shop By Collection"
                 type="button"
                 className="bg-main-500 text-dark-100 h-12 px-5 rounded-full text-sm font-semibold capitalize hover:border-main-500 border-2 border-main-500 hover:bg-transparent hover:text-main-500 transition duration-150 ease-in-out"
               >

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { NextSeo } from 'next-seo';
 import Layout from '../../components/layouts/Layout';
 import Breadcrumb from '../../components/navigation/Breadcrumb';
 import Card from '../../components/cards/Card';
+import seoConfig from '../../seo/collections';
 
 // Collections Page
 function Collections({ data }) {
@@ -12,6 +14,7 @@ function Collections({ data }) {
 
   return (
     <>
+      <NextSeo {...seoConfig().seo} />
       <Breadcrumb />
       <div className="flex mt-5 flex-wrap gap-5">
         {categories.map((category) => (

@@ -1,12 +1,17 @@
 import React from 'react';
+import { NextSeo } from 'next-seo';
 import Layout from '../components/layouts/Layout';
+import seoConfig from '../seo/cart';
 
 // Cart Page
 function Cart() {
   return (
-    <div>
-      <h1 className="text-3xl font-semibold">Cart</h1>
-    </div>
+    <>
+      <NextSeo {...seoConfig().seo} />
+      <div>
+        <h1 className="text-3xl font-semibold">Cart</h1>
+      </div>
+    </>
   );
 }
 

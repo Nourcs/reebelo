@@ -5,26 +5,33 @@ import {
   Share2,
 } from 'react-feather';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function ProductCard({ collection, product, index }) {
-  const nu = null;
   return (
-    <div className="w-full sm:w-1/3 md:w-1/4 pr-3 pb-3">
+    <div className="w-full sm:w-1/3 md:w-1/4 sm:pr-3 pb-3">
       <div className="shadow bg-dark-100 rounded-lg h-full">
         <Link href={`/collections/${collection.id}/${product.id}`}>
-          <div
-            className="w-full h-48 rounded-t-lg relative bg-cover bg-no-repeat bg-center"
-            style={{
-              backgroundImage: `url(${product.thumbnail})`,
-            }}
-          >
+          <div className="h-48 w-full relative">
+            <Image
+              src={product.thumbnail}
+              alt="Mountains"
+              fill
+              style={{
+                objectFit: 'cover',
+                borderTopLeftRadius: '8px',
+                borderTopRightRadius: '8px',
+              }}
+            />
             <div
-              className="w-full h-full rounded-t-lg"
+              className="w-full h-full rounded-t-lg absolute"
               style={{
                 background: 'linear-gradient(180deg, rgba(0,0,0,0.3015800070028011) 0%, rgba(125,125,125,0) 50%, rgba(255,255,255,0) 100%)',
               }}
             />
             <button
+              id={`favorite-${product.id}`}
+              aria-label={`Add ${product.title} To Favorites`}
               type="button"
               className="absolute top-5 right-5 text-dark-100 group"
               onClick={(e) => {
@@ -54,6 +61,8 @@ function ProductCard({ collection, product, index }) {
                 Left
               </div>
               <button
+                id={`share-${product.id}`}
+                aria-label={`Share ${product.title}`}
                 onClick={(e) => {
                   e.preventDefault();
                 }}

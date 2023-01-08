@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { NextSeo } from 'next-seo';
 import Layout from '../components/layouts/Layout';
 import Hero from '../components/cards/Hero';
 import Card from '../components/cards/Card';
+import seoConfig from '../seo/index';
 
 // Home Page
 function Index({ data }) {
@@ -11,16 +13,19 @@ function Index({ data }) {
   })));
 
   return (
-    <div className="flex flex-col gap-5">
-      <Hero />
-      <div className="flex flex-wrap gap-5">
-        {[...categories].map((category) => (
-          <React.Fragment key={category.id}>
-            <Card category={category} />
-          </React.Fragment>
-        ))}
+    <>
+      <NextSeo {...seoConfig().seo} />
+      <div className="flex flex-col gap-5">
+        <Hero />
+        <div className="flex flex-wrap gap-5">
+          {[...categories].map((category) => (
+            <React.Fragment key={category.id}>
+              <Card category={category} />
+            </React.Fragment>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

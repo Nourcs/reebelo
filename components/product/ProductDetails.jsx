@@ -50,6 +50,8 @@ function ProductDetails({ product }) {
             <span>{quantity}</span>
             <div className="flex flex-col">
               <button
+                id="increment"
+                aria-label="Increment Quantity"
                 onClick={() => {
                   if (product.stock > quantity) setQuantity(quantity + 1);
                 }}
@@ -61,6 +63,8 @@ function ProductDetails({ product }) {
                 </div>
               </button>
               <button
+                id="decrement"
+                aria-label="Decrement Quantity"
                 onClick={() => {
                   if (quantity > 0)setQuantity(quantity - 1);
                 }}
@@ -83,6 +87,8 @@ function ProductDetails({ product }) {
           <div className="flex mt-3 ml-1">
             {COLORS.map((color) => (
               <button
+                id={color.value}
+                aria-label={color.name}
                 key={color.value}
                 className="h-6 w-6 rounded-full mr-3"
                 type="button"
@@ -100,6 +106,8 @@ function ProductDetails({ product }) {
         </div>
       </div>
       <button
+        id="add-to-cart"
+        aria-label="Add to Cart"
         type="button"
         className="bg-main-500 h-10 w-full rounded-lg text-sm font-semibold text-white hover:bg-white hover:text-main-500 border-2 border-main-500 tranistion duration-150 ease-in-out"
       >

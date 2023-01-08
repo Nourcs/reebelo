@@ -12,6 +12,8 @@ function Card({ category }) {
         <div className="flex-1">
           <Link href={`/collections/${category.id}`}>
             <button
+              id={`browse-${category.id}`} 
+              aria-label={`Browse ${category.name}`}
               type="button"
               className="bg-transparent text-main-500 h-10 px-5 rounded-full text-sm font-semibold capitalize border-main-500 border-2 hover:bg-main-500 hover:text-dark-100 transition duration-150 ease-in-out"
             >

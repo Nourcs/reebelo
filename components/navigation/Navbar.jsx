@@ -21,18 +21,34 @@ function Navbar() {
         <div className="flex items-center justify-between flex-1">
           <div>
             <Link href="/">
-              <button type="button" className="mr-10">Logo</button>
+              <button
+                id="logo"
+                aria-label="Home"
+                type="button"
+                className="mr-10"
+              >
+                Logo
+              </button>
             </Link>
             {NAVIGATION.map(({ name, value, mobile }) => (
               <React.Fragment key={value}>
                 <Link href={`/${value}`} key={name.toLocaleLowerCase()}>
-                  <button type="button" className={`mr-10 ${!mobile && 'hidden md:inline-block'} ${pathname.split('/')[1] === value ? 'text-main-500' : 'text-dark-500 hover:text-dark-900 transition duration-150 ease-in-out'}`}>{name}</button>
+                  <button
+                    id={value}
+                    aria-label={name}
+                    type="button"
+                    className={`mr-10 ${!mobile && 'hidden md:inline-block'} ${pathname.split('/')[1] === value ? 'text-main-500' : 'text-dark-500 hover:text-dark-900 transition duration-150 ease-in-out'}`}
+                  >
+                    {name}
+                  </button>
                 </Link>
               </React.Fragment>
             ))}
           </div>
           <div className="flex items-center">
             <button
+              id="profile"
+              aria-label="Profile"
               onClick={() => setShowSignupModal(true)}
               type="button"
               className="mr-3 flex items-center hover:bg-main-500 hover:text-dark-100 p-3 rounded-full transition duration-150 ease-in-out"
@@ -42,7 +58,12 @@ function Navbar() {
               </div>
             </button>
             <Link href="/cart">
-              <button type="button" className="relative flex items-center hover:bg-main-500 hover:text-dark-100 p-3 rounded-full transition duration-150 ease-in-out">
+              <button
+                id="cart"
+                aria-label="Cart"
+                type="button"
+                className="relative flex items-center hover:bg-main-500 hover:text-dark-100 p-3 rounded-full transition duration-150 ease-in-out"
+              >
                 <div>
                   <ShoppingCart className="h-5 w-5" />
                 </div>

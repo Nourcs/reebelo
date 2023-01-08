@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import {
   ChevronDown,
 } from 'react-feather';
+import { NextSeo } from 'next-seo';
 import Breadcrumb from '../../../components/navigation/Breadcrumb';
 import Layout from '../../../components/layouts/Layout';
 import ProductCard from '../../../components/cards/ProductCard';
+
+import seoConfig from '../../../seo/collection';
 
 // Filter Component
 function Filters() {
@@ -23,7 +26,12 @@ function Sort() {
         placeholder="Search"
         className="h-10 border border-dark-200 rounded-lg flex items-center px-3 flex-1 mr-3 placeholder:text-dark-500"
       />
-      <button type="button" className="h-10 border border-dark-200 rounded-lg flex items-center justify-between w-60 text-sm px-3">
+      <button
+        id="sortby"
+        aria-label="Sort By"
+        type="button"
+        className="h-10 border border-dark-200 rounded-lg flex items-center justify-between w-60 text-sm px-3"
+      >
         Sort By
         <div className="text-dark-500">
           <ChevronDown className="h-5 w-5" />
@@ -45,6 +53,8 @@ function Collection({ data }) {
 
   return (
     <>
+      <NextSeo {...seoConfig(collection.name.toUpperCase()).seo} />
+
       <Breadcrumb collectionName={collection.name} />
       <section className="mt-5 flex gap-5 relative">
         <Filters />
@@ -63,6 +73,8 @@ function Collection({ data }) {
           </div>
           {/* CTA for data lazy load  */}
           <button
+            id="view-more"
+            aria-label="View More"
             onClick={() => setProducts([...products, ...data.products.products])}
             type="button"
             className="mt-2 h-10 w-full border-2 border-main-500 rounded-lg text-sm text-main-500 font-medium hover:bg-main-500 hover:text-white transition duration-150 ease-in-out"
