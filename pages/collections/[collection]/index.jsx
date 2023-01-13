@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import {
-  ChevronDown,
+  ChevronDown, Search,
 } from 'react-feather';
 import { NextSeo } from 'next-seo';
 import Breadcrumb from '../../../components/navigation/Breadcrumb';
@@ -20,23 +20,39 @@ function Filters() {
 // Sort Component
 function Sort() {
   return (
-    <div className="flex">
-      <input
-        type="text"
-        placeholder="Search"
-        className="h-10 border border-dark-200 rounded-lg flex items-center px-3 flex-1 mr-3 placeholder:text-dark-500"
-      />
-      <button
-        id="sortby"
-        aria-label="Sort By"
-        type="button"
-        className="h-10 border border-dark-200 rounded-lg flex items-center justify-between w-60 text-sm px-3"
-      >
-        Sort By
-        <div className="text-dark-500">
-          <ChevronDown className="h-5 w-5" />
+    <div className="flex flex-col md:flex-row">
+      <label className="flex items-center border border-dark-200 rounded-lg md:flex-1 md:mr-3 relative" htmlFor="search">
+        <div className="left-3 absolute">
+          <Search className="h-5 w-5 text-dark-500" strokeWidth={2.5} />
         </div>
-      </button>
+        <input
+          type="text"
+          placeholder="Search"
+          className="h-10 placeholder:text-dark-500 outline-none w-full pl-10 bg-transparent rounded-lg pr-3"
+          id="search"
+        />
+      </label>
+      <div className="flex-1 md:flex-none flex items-center mt-3 md:mt-0">
+        <button
+          id="filters"
+          aria-label="Filters"
+          type="button"
+          className="w-1/2 md:hidden mr-3 h-10 border border-dark-200 rounded-lg flex items-center justify-between font-medium px-3"
+        >
+          Filters
+        </button>
+        <button
+          id="sortby"
+          aria-label="Sort By"
+          type="button"
+          className="h-10 font-medium border border-dark-200 rounded-lg flex items-center justify-between w-1/2 md:w-60 px-3"
+        >
+          Sort By
+          <div className="text-dark-500">
+            <ChevronDown className="h-5 w-5" />
+          </div>
+        </button>
+      </div>
     </div>
   );
 }
@@ -54,7 +70,6 @@ function Collection({ data }) {
   return (
     <>
       <NextSeo {...seoConfig(collection.name.toUpperCase()).seo} />
-
       <Breadcrumb collectionName={collection.name} />
       <section className="mt-5 flex gap-5 relative">
         <Filters />
@@ -77,7 +92,7 @@ function Collection({ data }) {
             aria-label="View More"
             onClick={() => setProducts([...products, ...data.products.products])}
             type="button"
-            className="mt-2 h-10 w-full border-2 border-main-500 rounded-lg text-sm text-main-500 font-medium hover:bg-main-500 hover:text-white transition duration-150 ease-in-out"
+            className="mt-2 h-10 w-full border-2 border-main-500 rounded-lg text-sm text-main-500 font-medium hover:bg-main-500 hover:text-white main-transition"
           >
             View More
           </button>

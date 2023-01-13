@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {
-  ChevronDown, ChevronUp, ShoppingCart, Star,
+  Award,
+  ChevronDown, ChevronUp, Star,
 } from 'react-feather';
+import { useCartContext } from '../../context/state';
 
 const COLORS = [
   { name: 'Tangerine', value: '#fb8500' },
@@ -14,6 +16,9 @@ const COLORS = [
 function ProductDetails({ product }) {
   const [selectedColor, setSelectedColor] = useState(COLORS[0]);
   const [quantity, setQuantity] = useState(1);
+  const {
+    cart, setCart,
+  } = useCartContext();
 
   return (
     <div className="flex-1 flex flex-col justify-between">
@@ -22,9 +27,9 @@ function ProductDetails({ product }) {
           <h1 className="text-xl font-light">
             {product.title}
           </h1>
-          <div className="flex items-center text-sm">
+          <div className="flex items-center text-sm animate-bounce">
             <div className="mr-2">
-              <ShoppingCart className="h-5 w-5" />
+              <Award className="h-5 w-5" />
             </div>
             {' '}
             Selling Fast!
@@ -56,7 +61,7 @@ function ProductDetails({ product }) {
                   if (product.stock > quantity) setQuantity(quantity + 1);
                 }}
                 type="button"
-                className="text-dark-400 hover:text-dark-900 transition duration-150 ease-in-out"
+                className="text-dark-400 hover:text-dark-900 main-transition"
               >
                 <div>
                   <ChevronUp className="h-4 w-4" />
@@ -66,10 +71,10 @@ function ProductDetails({ product }) {
                 id="decrement"
                 aria-label="Decrement Quantity"
                 onClick={() => {
-                  if (quantity > 0)setQuantity(quantity - 1);
+                  if (quantity > 1)setQuantity(quantity - 1);
                 }}
                 type="button"
-                className="text-dark-400 hover:text-dark-900 transition duration-150 ease-in-out"
+                className="text-dark-400 hover:text-dark-900 main-transition"
               >
                 <div>
                   <ChevronDown className="h-4 w-4" />
@@ -106,10 +111,13 @@ function ProductDetails({ product }) {
         </div>
       </div>
       <button
+        onClick={() => {
+          setCart({ products: cart.products + quantity });
+        }}
         id="add-to-cart"
         aria-label="Add to Cart"
         type="button"
-        className="bg-main-500 h-10 w-full rounded-lg text-sm font-semibold text-white hover:bg-white hover:text-main-500 border-2 border-main-500 tranistion duration-150 ease-in-out"
+        className="fixed md:relative left-0 bottom-0 bg-main-500 h-16 md:h-10 mt-5 w-full md:rounded-lg text-sm font-semibold text-white md:hover:bg-white md:hover:text-main-500 border-2 border-main-500 tranistion duration-150 ease-in-out"
       >
         Add To Cart
       </button>

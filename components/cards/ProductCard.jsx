@@ -10,7 +10,7 @@ import Image from 'next/image';
 function ProductCard({ collection, product, index }) {
   return (
     <div className="w-full sm:w-1/3 md:w-1/4 sm:pr-3 pb-3">
-      <div className="shadow bg-dark-100 rounded-lg h-full">
+      <div className="card h-full">
         <Link href={`/collections/${collection.id}/${product.id}`}>
           <div className="h-48 w-full relative">
             <Image
@@ -67,7 +67,7 @@ function ProductCard({ collection, product, index }) {
                   e.preventDefault();
                 }}
                 type="button"
-                className="text-dark-400 hover:text-main-500 transition duration-150 ease-in-out"
+                className="text-dark-400 hover:text-main-500 main-transition"
               >
                 <div>
                   <Share2 className="h-5 w-5" />

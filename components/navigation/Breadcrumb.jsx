@@ -9,17 +9,20 @@ function Breadcrumb({ collectionName, productName }) {
   const pathname = router.asPath.split('/');
 
   return (
-    <div className="font-semibold flex items-center">
+    <div className="font-semibold flex items-center overflow-x-auto max-w-full">
       {pathname.map((item, index) => {
         const path = index === 0 ? '/' : [...pathname].splice(0, index + 1).join('/');
         return (
           <React.Fragment key={`${item}_${index}`}>
-            <Link href={path}>
+            <Link
+              href={path}
+              className={`shrink-0 main-transition ${index + 1 === pathname.length ? 'text-dark-900' : 'text-dark-500 hover:text-dark-900'}`}
+            >
               <button
                 id={item}
                 aria-label={item}
                 type="button"
-                className={`transition duration-150 ease-in-out capitalize ${index + 1 === pathname.length ? 'text-dark-900' : 'text-dark-500 hover:text-dark-900'}`}
+                className="capitalize"
               >
                 {{
                   0: 'Home',

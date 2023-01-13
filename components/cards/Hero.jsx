@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 function Hero() {
   return (
-    <section className="bg-dark-100 shadow h-[500px] flex items-center justify-center px-10 lg:px-20 rounded-lg">
+    <section className="card h-[500px] flex items-center justify-center px-10 lg:px-20">
       <div className="w-full">
         <h2 className="text-xl font-light capitalize">Lorem ipsum</h2>
         <h1 className="text-5xl font-bold mt-2 capitalize">dolor sit</h1>
@@ -11,10 +11,10 @@ function Hero() {
           <div className="flex-1">
             <Link href="/collections">
               <button
-                id="shop-by-collection" 
+                id="shop-by-collection"
                 aria-label="Shop By Collection"
                 type="button"
-                className="bg-main-500 text-dark-100 h-12 px-5 rounded-full text-sm font-semibold capitalize hover:border-main-500 border-2 border-main-500 hover:bg-transparent hover:text-main-500 transition duration-150 ease-in-out"
+                className="dark-button main-transition"
               >
                 Shop by collection
               </button>

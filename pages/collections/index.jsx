@@ -28,7 +28,7 @@ function Collections({ data }) {
 }
 
 // Retrieving data from API that will be passed to the page component as props
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const data = await fetch('https://dummyjson.com/products/categories').then((res) => res.json());
 
   return {

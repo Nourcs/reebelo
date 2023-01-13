@@ -13,7 +13,7 @@ function Product({ data }) {
     <>
       <NextSeo {...seoConfig(product.title).seo} />
       <Breadcrumb collectionName={product.category.split('-').join(' ')} productName={product.title} />
-      <div className="flex mt-5">
+      <div className="flex mt-5 flex-col lg:flex-row">
         <ImageViewer product={product} />
         <ProductDetails product={product} />
       </div>
